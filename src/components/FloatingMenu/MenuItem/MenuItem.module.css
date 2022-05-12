@@ -1,0 +1,50 @@
+.menuItem {
+	position: relative;
+	cursor: pointer;
+}
+
+.menuItem:not(:last-child) {
+	margin-bottom: 8px;
+}
+
+.itemImage {
+	transition: transform 0.35s ease-in-out;
+	image-rendering: -webkit-optimize-contrast;
+}
+
+.menuItem:hover .itemImage {
+	transform: scale(1.1);
+}
+
+.label {
+	position: absolute;
+	width: max-content;
+	top: 50%;
+	left: calc(100% + 22px);
+	transform: translateY(-50%);
+	padding: 8px;
+	background-color: rgba(0, 0, 0, 0.65);
+	border-radius: 8px;
+	color: white;
+	visibility: hidden;
+	opacity: 0;
+	transition: left 0.35s, visibility 0.35s, opacity 0.35s;
+	transition-timing-function: ease-in-out;
+}
+
+.label:before {
+	content: '';
+	position: absolute;
+	top: 50%;
+	right: 100%;
+	transform: translateY(-50%);
+	border-right: 5px solid rgba(0, 0, 0, 0.65);
+	border-top: 5px solid transparent;
+	border-bottom: 5px solid transparent;
+}
+
+.menuItem:hover .label {
+	left: calc(100% + 14px);
+	visibility: visible;
+	opacity: 1;
+}
